@@ -141,7 +141,7 @@
             <br>
             <br>
             <p id="ingreseBuscarEt">Ingrese el número de etiqueta que desea buscar:</p>
-            <form method="POST" action="BuscarElemento" id="FormPost">
+            <form method="POST" action="BuscarElementoU" id="FormPost">
                 <input type="text" name="Buscar" placeholder="Etiqueta..">
                 <br>
                 <br>
@@ -149,7 +149,7 @@
                 <div id="botonEnviar1"><input name="Enviar" type="submit" class="enviar" value="BUSCAR"></div>
             </form>
             <p id="ingreseBuscarNom">Ingrese el nombre que desea buscar:</p>
-            <form method="GET" action="BuscarElemento" id="FormGet">
+            <form method="GET" action="BuscarElementoU" id="FormGet">
                 <input type="text" name="Buscar" placeholder="Nombre..">
                 <br>
                 <br>

@@ -94,7 +94,7 @@
             <br>
             <!--Son 20 Areas -->
             <div id="contentTable">
-                <form method="POST" action="ListarPorArea" name="seleccion">
+                <form method="POST" action="ListarPorAreaU" name="seleccion">
                     <table style="width:100%">
                         <tr>
                             <td><input name="Enciclopedia" type="submit" class="boton2" id="enlace28" value="Enciclopedia"></td>

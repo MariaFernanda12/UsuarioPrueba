@@ -58,7 +58,7 @@
         <%if (request.getAttribute("Exito2") != null) {
                 Solicitante sol = (Solicitante) request.getAttribute("Exito");
         %>
-        <form action="ListarPrestamos">
+        <form action="ListarPrestamosU">
             <h1>Bienvenido <%=sol.getTipo()%> , <%=sol.getNombre()%> </h1>
             <%
                     request.setAttribute("Exito2", sol);

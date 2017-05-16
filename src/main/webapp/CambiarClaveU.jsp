@@ -75,7 +75,7 @@
             <br>
             <br>
             <br>            
-            <form method="POST" action="CambiarClave">
+            <form method="POST" action="CambiarClaveU">
                 <p class="p1">Digite su clave actual</p>
                 <input type="text" name="ClaveAntigua" placeholder="Clave Actual...">
                 <br>
