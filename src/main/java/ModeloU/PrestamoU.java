@@ -1,6 +1,6 @@
-package Modelo;
+package ModeloU;
 
-public class Prestamo {
+public class PrestamoU {
 
     //Etiqueta del elemento a petición
     private int etiquetaInv;

@@ -1,7 +1,7 @@
-package Controlador;
+package ControladorU;
 
-import DAO.DaoElementos;
-import Modelo.Elemento;
+import DAOU.DaoElementosU;
+import ModeloU.ElementoU;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class BuscarElemento extends HttpServlet {
+public class BuscarElementoU extends HttpServlet {
 
   
 
@@ -25,9 +25,9 @@ public class BuscarElemento extends HttpServlet {
             //Buscar Por nombre
             String parametro = request.getParameter("Buscar");
             
-            Elemento elm = new Elemento();
+            ElementoU elm = new ElementoU();
             //1. Crear instancia del DAO
-            DaoElementos daoE = new DaoElementos();
+            DaoElementosU daoE = new DaoElementosU();
             //Lista todos los elementos.
             elm = daoE.buscarPorNombre(parametro);
             //2. Envio de los datos por el request.
@@ -36,7 +36,7 @@ public class BuscarElemento extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("BuscarElemento.jsp");
             rd.forward(request, response);
         } catch (URISyntaxException ex) {
-            Logger.getLogger(BuscarElemento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BuscarElementoU.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -47,9 +47,9 @@ public class BuscarElemento extends HttpServlet {
             //Buscar por etiqueta
             String parametro = request.getParameter("Buscar");
             
-            Elemento elm = new Elemento();
+            ElementoU elm = new ElementoU();
             
-            DaoElementos daoE = new DaoElementos();
+            DaoElementosU daoE = new DaoElementosU();
             
             elm = daoE.buscar(Integer.parseInt(parametro));
             
@@ -58,7 +58,7 @@ public class BuscarElemento extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("BuscarElemento.jsp");
             rd.forward(request, response);
         } catch (URISyntaxException ex) {
-            Logger.getLogger(BuscarElemento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BuscarElementoU.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

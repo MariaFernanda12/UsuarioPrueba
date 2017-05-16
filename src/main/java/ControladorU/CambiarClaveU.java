@@ -1,7 +1,7 @@
-package Controlador;
+package ControladorU;
 
-import DAO.DaoUsuario;
-import Modelo.Solicitante;
+import DAOU.DaoUsuarioU;
+import ModeloU.SolicitanteU;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class CambiarClave extends HttpServlet {
+public class CambiarClaveU extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -25,8 +25,8 @@ public class CambiarClave extends HttpServlet {
             String claveAntigua = request.getParameter("ClaveAntigua");
             
             HttpSession sesion = request.getSession();
-            DaoUsuario daoUser = new DaoUsuario();
-            Solicitante sol = (Solicitante) sesion.getAttribute("usuario");
+            DaoUsuarioU daoUser = new DaoUsuarioU();
+            SolicitanteU sol = (SolicitanteU) sesion.getAttribute("usuario");
             long id = sol.getIdentificador();
             boolean resultado = daoUser.cambiarClave(id, claveNueva, claveAntigua);
             
@@ -34,7 +34,7 @@ public class CambiarClave extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("CambiarClave.jsp");
             rd.forward(request, response);
         } catch (URISyntaxException ex) {
-            Logger.getLogger(CambiarClave.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CambiarClaveU.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

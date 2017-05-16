@@ -1,12 +1,12 @@
-package Controlador;
+package ControladorU;
 
-import DAO.DaoElementos;
+import DAOU.DaoElementosU;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Modelo.Elemento;
+import ModeloU.ElementoU;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 
-public class CrearListar extends HttpServlet {
+public class CrearListarU extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InterruptedException {
@@ -26,9 +26,9 @@ public class CrearListar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            ArrayList<Elemento> lista = null;
+            ArrayList<ElementoU> lista = null;
             //1. Crear instancia del DAO
-            DaoElementos daoE = new DaoElementos();
+            DaoElementosU daoE = new DaoElementosU();
             //Lista todos los elementos.
             lista = daoE.listarTodo();
             //2. Envio de los datos por el request.
@@ -37,7 +37,7 @@ public class CrearListar extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("ListarElementos.jsp");
             rd.forward(request, response);
         } catch (URISyntaxException ex) {
-            Logger.getLogger(CrearListar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrearListarU.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -59,7 +59,7 @@ public class CrearListar extends HttpServlet {
             String area = request.getParameter("area");
             
             //3. Crear el DTO
-            Elemento elm = new Elemento();
+            ElementoU elm = new ElementoU();
             elm.setCodPUC(Integer.parseInt(codigoPUC));
             elm.setEtiqueta(Integer.parseInt(etiqueta));
             elm.setNombre(nombre);
@@ -72,7 +72,7 @@ public class CrearListar extends HttpServlet {
             elm.setArea(area);
             
             //4. Enlazarme con el DAO.
-            DaoElementos daoElm = new DaoElementos();
+            DaoElementosU daoElm = new DaoElementosU();
             boolean resultado = daoElm.insertar(elm);
             if (resultado == false) {
                 request.setAttribute("insersion", "OK");
@@ -83,7 +83,7 @@ public class CrearListar extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("IngresoElemento.jsp");
             rd.forward(request, response);
         } catch (URISyntaxException ex) {
-            Logger.getLogger(CrearListar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrearListarU.class.getName()).log(Level.SEVERE, null, ex);
         }
         
 

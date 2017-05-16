@@ -1,6 +1,6 @@
-package Modelo;
+package ModeloU;
 
-public class Elemento {
+public class ElementoU {
 
     private int codPUC;
     private int etiqueta;

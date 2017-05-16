@@ -1,4 +1,4 @@
-package Util;
+package UtilU;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;

@@ -1,30 +1,30 @@
-package DAO;
+package DAOU;
 
-import Modelo.Prestamo;
+import ModeloU.PrestamoU;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import Modelo.Solicitante;
-import Util.Conexion;
+import ModeloU.SolicitanteU;
+import UtilU.Conexion;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DaoUsuario {
+public class DaoUsuarioU {
 
     private Connection conexion;
 
-    public DaoUsuario() throws URISyntaxException {
+    public DaoUsuarioU() throws URISyntaxException {
         
         this.conexion= Conexion.getConnection();
         
     }
 
-    public Solicitante validar(long usuario, String clave) {
-        Solicitante sol = null;
+    public SolicitanteU validar(long usuario, String clave) {
+        SolicitanteU sol = null;
         try {
 
             String consulta = "select * from solicitante where identificador="
@@ -35,7 +35,7 @@ public class DaoUsuario {
             ResultSet resultado
                     = statement.executeQuery(consulta);
             if (resultado.next()) {
-                sol = new Solicitante();
+                sol = new SolicitanteU();
                 sol.setIdentificador(resultado.getLong("identificador"));
                 sol.setNombre(resultado.getString("nombreSol"));
                 sol.setTipo(resultado.getString("tipo"));
@@ -60,7 +60,7 @@ public class DaoUsuario {
             System.out.println(consulta);
 
         } catch (SQLException ex) {
-            Logger.getLogger(DaoElementos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoElementosU.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return resultado;

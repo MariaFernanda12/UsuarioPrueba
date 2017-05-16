@@ -1,7 +1,7 @@
-package Controlador;
+package ControladorU;
 
-import DAO.DaoElementos;
-import Modelo.Elemento;
+import DAOU.DaoElementosU;
+import ModeloU.ElementoU;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ListarPorArea extends HttpServlet {
+public class ListarPorAreaU extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -56,8 +56,8 @@ public class ListarPorArea extends HttpServlet {
             String MaterialDidactico = request.getParameter("Material Didactico");
             String Multimedia = request.getParameter("Multimedia");
             String Equipo = request.getParameter("Equipo");
-            ArrayList<Elemento> lista = null;
-            DaoElementos daoE = new DaoElementos();
+            ArrayList<ElementoU> lista = null;
+            DaoElementosU daoE = new DaoElementosU();
             
             if (Enciclopedia != null) {
                 lista = daoE.listarPorArea(Enciclopedia);
@@ -186,7 +186,7 @@ public class ListarPorArea extends HttpServlet {
                 rd.forward(request, response);
             }
         } catch (URISyntaxException ex) {
-            Logger.getLogger(ListarPorArea.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ListarPorAreaU.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

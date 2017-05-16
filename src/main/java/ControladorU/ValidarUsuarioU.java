@@ -1,7 +1,7 @@
-package Controlador;
+package ControladorU;
 
-import DAO.DaoUsuario;
-import Modelo.Solicitante;
+import DAOU.DaoUsuarioU;
+import ModeloU.SolicitanteU;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class ValidarUsuario extends HttpServlet {
+public class ValidarUsuarioU extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -33,13 +33,13 @@ public class ValidarUsuario extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String clave = request.getParameter("password");
         textoId = new Long(Long.parseLong(usuario));
-        DaoUsuario daoUser = null;
+        DaoUsuarioU daoUser = null;
         try {
-            daoUser = new DaoUsuario();
+            daoUser = new DaoUsuarioU();
         } catch (URISyntaxException ex) {
-            Logger.getLogger(ValidarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ValidarUsuarioU.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Solicitante sol = new Solicitante();
+        SolicitanteU sol = new SolicitanteU();
         sol = daoUser.validar(textoId, clave);
 
         if (sol != null) {
@@ -53,9 +53,9 @@ public class ValidarUsuario extends HttpServlet {
         }
 
         HttpSession sesion = request.getSession();
-        sol = (Solicitante) sesion.getAttribute("usuario");
+        sol = (SolicitanteU) sesion.getAttribute("usuario");
         if (sol == null) {
-            sol = new Solicitante();
+            sol = new SolicitanteU();
             sol.setIdentificador(textoId);
             sol.setClave(clave);
             sesion.setAttribute("usuario", sol);

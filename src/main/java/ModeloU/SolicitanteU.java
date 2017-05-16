@@ -1,6 +1,6 @@
-package Modelo;
+package ModeloU;
 
-public class Solicitante {
+public class SolicitanteU {
 
     private long identificador;
     private String nombre;

@@ -1,20 +1,20 @@
-package DAO;
+package DAOU;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import Modelo.Prestamo;
-import Util.Conexion;
+import ModeloU.PrestamoU;
+import UtilU.Conexion;
 import java.net.URISyntaxException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class DaoPrestamo {
+public class DaoPrestamoU {
 
     private Connection conexion;
 
-    public DaoPrestamo() throws URISyntaxException {
+    public DaoPrestamoU() throws URISyntaxException {
         this.conexion= Conexion.getConnection();
     }
 
@@ -78,7 +78,7 @@ public class DaoPrestamo {
         return result;
     }
 
-    public boolean nuevoPrestamo(Prestamo pr) {
+    public boolean nuevoPrestamo(PrestamoU pr) {
         boolean resultado = false;
         try {
             //1.Establecer la consulta
@@ -102,9 +102,9 @@ public class DaoPrestamo {
         return resultado;
     }
 
-    public ArrayList<Prestamo> listarHistorial(long id) {
+    public ArrayList<PrestamoU> listarHistorial(long id) {
 
-        ArrayList<Prestamo> respuesta = new ArrayList();
+        ArrayList<PrestamoU> respuesta = new ArrayList();
         String consulta = "select * from prestamo where identificadorSol=" + id + "";
 
         try {
@@ -116,7 +116,7 @@ public class DaoPrestamo {
                     = statement.executeQuery(consulta);
             System.out.println(consulta);
             while (resultado.next()) {
-                Prestamo pr = new Prestamo();
+                PrestamoU pr = new PrestamoU();
                 pr.setEtiquetaInv(resultado.getInt("etiquetaInv"));
                 pr.setFecha(resultado.getString("fechaDev"));
                 pr.setEstadoSol(resultado.getString("estado"));
@@ -131,9 +131,9 @@ public class DaoPrestamo {
         return respuesta;
     }
 
-    public ArrayList<Prestamo> listarActivo(long id) {
+    public ArrayList<PrestamoU> listarActivo(long id) {
 
-        ArrayList<Prestamo> respuesta = new ArrayList();
+        ArrayList<PrestamoU> respuesta = new ArrayList();
         String consulta = "select * from prestamo where identificadorSol=" + id + " and estado='Activo'";
 
         try {
@@ -145,7 +145,7 @@ public class DaoPrestamo {
                     = statement.executeQuery(consulta);
             System.out.println(consulta);
             while (resultado.next()) {
-                Prestamo pr = new Prestamo();
+                PrestamoU pr = new PrestamoU();
                 pr.setEtiquetaInv(resultado.getInt("etiquetaInv"));
                 pr.setFecha(resultado.getString("fechaDev"));
                 pr.setEstadoSol(resultado.getString("estado"));

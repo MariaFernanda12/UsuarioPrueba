@@ -58,7 +58,7 @@
         <header>
             <!--Encabezado-->
             <div class="col-sm-2" id="header1">
-                <a href="Home.jsp"><img src="Imagenes/escudo.png" alt="NotFound" id="escudo"></a>
+                <a href="HomeU.jsp"><img src="Imagenes/escudo.png" alt="NotFound" id="escudo"></a>
             </div>
             <div class="col-sm-10" id="header2">
                 <div id="mainTitle"><p id="titulo">BIBLIOTECA COLEGIO ANTONIO NARIÑO</p></div>
@@ -67,20 +67,20 @@
         <br>
         <!--Menu-->
         <div class="col-sm-2" id="menu">
-            <a href="Home.jsp" class="botonMenu col-sm-12" id="enlace0">Inicio</a>
-            <a href="PrincipalInventario.jsp" class="botonMenu col-sm-12" id="enlace1">Elementos Biblioteca</a>
-            <a href="Estado" class="botonMenu col-sm-12" id="enlace2">Mi Estado</a>
-            <a href="Historial" class="botonMenu col-sm-12" id="enlace3">Historial Prestamos</a>
-            <a href="CambiarClave.jsp" class="botonMenu col-sm-12" id="enlace4">Cambiar Clave</a>
+            <a href="HomeU.jsp" class="botonMenu col-sm-12" id="enlace0">Inicio</a>
+            <a href="PrincipalInventarioU.jsp" class="botonMenu col-sm-12" id="enlace1">Elementos Biblioteca</a>
+            <a href="EstadoU" class="botonMenu col-sm-12" id="enlace2">Mi Estado</a>
+            <a href="HistorialU" class="botonMenu col-sm-12" id="enlace3">Historial Prestamos</a>
+            <a href="CambiarClaveU.jsp" class="botonMenu col-sm-12" id="enlace4">Cambiar Clave</a>
         </div>
 
         <!--Contenido-->
         <div class="col-sm-10" id="content">
 
             <ul>
-                <li><a href="CrearListar" id="a">Lista de Elementos</a></li>
-                <li><a href="ListarPorArea.jsp" id="b">Lista por Area</a></li>
-                <li><a href="BuscarElemento.jsp" id="c">Busqueda</a></li>
+                <li><a href="CrearListarU" id="a">Lista de Elementos</a></li>
+                <li><a href="ListarPorAreaU.jsp" id="b">Lista por Area</a></li>
+                <li><a href="BuscarElementoU.jsp" id="c">Busqueda</a></li>
 
             </ul>
             <br>

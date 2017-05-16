@@ -1,4 +1,4 @@
-package DAO;
+package DAOU;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,21 +6,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import Modelo.Elemento;
-import Util.Conexion;
+import ModeloU.ElementoU;
+import UtilU.Conexion;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DaoElementos {
+public class DaoElementosU {
 
     private Connection conexion;
 
-    public DaoElementos() throws URISyntaxException {
+    public DaoElementosU() throws URISyntaxException {
         this.conexion= Conexion.getConnection();
     }
 
-    public boolean insertar(Elemento elm) {
+    public boolean insertar(ElementoU elm) {
         boolean resultado = false;
         try {
             //1.Establecer la consulta
@@ -50,10 +50,10 @@ public class DaoElementos {
     }
 
  
-    public ArrayList<Elemento> listarTodo() {
+    public ArrayList<ElementoU> listarTodo() {
         //1.Consulta
 
-        ArrayList<Elemento> respuesta = new ArrayList();
+        ArrayList<ElementoU> respuesta = new ArrayList();
         String consulta = "select * from inventario";
         try {           
             //Statement
@@ -65,7 +65,7 @@ public class DaoElementos {
             //----------------------------
             //Recorrido sobre el resultado
             while (resultado.next()) {
-                Elemento elm = new Elemento();
+                ElementoU elm = new ElementoU();
                 elm.setCodPUC(resultado.getInt("codPuc"));
                 elm.setEtiqueta(resultado.getInt("etiqueta"));
                 elm.setNombre(resultado.getString("nombre"));
@@ -87,10 +87,10 @@ public class DaoElementos {
         return respuesta;
     }
 
-    public ArrayList<Elemento> listarPorArea(String area) {
+    public ArrayList<ElementoU> listarPorArea(String area) {
         //1.Consulta
 
-        ArrayList<Elemento> respuesta = new ArrayList();
+        ArrayList<ElementoU> respuesta = new ArrayList();
         String consulta = "SELECT * FROM inventario where area = '" + area + "'";
         try {
             //----------------------------
@@ -103,7 +103,7 @@ public class DaoElementos {
             //----------------------------
             //Recorrido sobre el resultado
             while (resultado.next()) {
-                Elemento elm = new Elemento();
+                ElementoU elm = new ElementoU();
                 elm.setCodPUC(resultado.getInt("codPuc"));
                 elm.setEtiqueta(resultado.getInt("etiqueta"));
                 elm.setNombre(resultado.getString("nombre"));
@@ -124,8 +124,8 @@ public class DaoElementos {
         return respuesta;
     }
 
-    public Elemento buscar(int etiqueta) {
-        Elemento elm = null;
+    public ElementoU buscar(int etiqueta) {
+        ElementoU elm = null;
 
         try {
             String consulta = "select * from inventario where etiqueta = ?";
@@ -136,7 +136,7 @@ public class DaoElementos {
             
             ResultSet resultado = statement.executeQuery();
             if (resultado.next()) {
-                elm = new Elemento();
+                elm = new ElementoU();
                 elm.setCodPUC(resultado.getInt("codPuc"));
                 elm.setEtiqueta(resultado.getInt("etiqueta"));
                 elm.setNombre(resultado.getString("nombre"));
@@ -150,13 +150,13 @@ public class DaoElementos {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(DaoElementos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoElementosU.class.getName()).log(Level.SEVERE, null, ex);
         }
         return elm;
     }
 
-    public Elemento buscarPorNombre(String nombre) {
-        Elemento elm = null;
+    public ElementoU buscarPorNombre(String nombre) {
+        ElementoU elm = null;
 
         try {
             String consulta = "select * from inventario where nombre = ?";
@@ -166,7 +166,7 @@ public class DaoElementos {
             statement.setString(1, nombre);
             ResultSet resultado = statement.executeQuery();
             if (resultado.next()) {
-                elm = new Elemento();
+                elm = new ElementoU();
                 elm.setCodPUC(resultado.getInt("codPuc"));
                 elm.setEtiqueta(resultado.getInt("etiqueta"));
                 elm.setNombre(resultado.getString("nombre"));
@@ -180,7 +180,7 @@ public class DaoElementos {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(DaoElementos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoElementosU.class.getName()).log(Level.SEVERE, null, ex);
         }
         return elm;
     }
@@ -199,7 +199,7 @@ public class DaoElementos {
             
 
         } catch (SQLException ex) {
-            Logger.getLogger(DaoElementos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoElementosU.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return resultado;
@@ -216,7 +216,7 @@ public class DaoElementos {
             retorno = statement.execute();
 
         } catch (SQLException ex) {
-            Logger.getLogger(DaoElementos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoElementosU.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retorno;
 
