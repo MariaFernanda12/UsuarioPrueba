@@ -1,4 +1,4 @@
-<%@page import="Modelo.Prestamo"%>
+<%@page import="ModeloU.Prestamo"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 

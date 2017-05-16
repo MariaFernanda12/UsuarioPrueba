@@ -1,4 +1,4 @@
-<%@page import="Modelo.Solicitante"%>
+<%@page import="ModeloU.Solicitante"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
