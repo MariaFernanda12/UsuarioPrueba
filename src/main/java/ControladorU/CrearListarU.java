@@ -34,7 +34,7 @@ public class CrearListarU extends HttpServlet {
             //2. Envio de los datos por el request.
             request.setAttribute("elementos", lista);
             //3. RequestDispacher
-            RequestDispatcher rd = request.getRequestDispatcher("ListarElementos.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("ListarElementosU.jsp");
             rd.forward(request, response);
         } catch (URISyntaxException ex) {
             Logger.getLogger(CrearListarU.class.getName()).log(Level.SEVERE, null, ex);
@@ -80,7 +80,7 @@ public class CrearListarU extends HttpServlet {
                 request.setAttribute("insersion", "NOK");
             }
             //5. RequestDispacher
-            RequestDispatcher rd = request.getRequestDispatcher("IngresoElemento.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("IngresoElementoU.jsp");
             rd.forward(request, response);
         } catch (URISyntaxException ex) {
             Logger.getLogger(CrearListarU.class.getName()).log(Level.SEVERE, null, ex);

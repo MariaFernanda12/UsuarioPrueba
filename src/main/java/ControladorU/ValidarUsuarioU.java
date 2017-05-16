@@ -44,11 +44,11 @@ public class ValidarUsuarioU extends HttpServlet {
 
         if (sol != null) {
             request.setAttribute("Exito", sol);
-            RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("HomeU.jsp");
             rd.forward(request, response);
         } else {
             request.setAttribute("Failed", "NOK");
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("indexU.jsp");
             rd.forward(request, response);
         }
 
